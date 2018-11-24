@@ -18,5 +18,5 @@
   - name: startservice
     service:
       name: httpd
-      state: active
+      state: restarted 
 
