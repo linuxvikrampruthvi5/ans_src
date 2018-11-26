@@ -13,7 +13,7 @@
       state: present
     notify:
     - startservice
-  
+
   handlers:
   - name: startservice
     service:
