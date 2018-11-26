@@ -23,6 +23,10 @@ class bcolors: # Class to print colored output
     UNDERLINE = '\033[4m'
 
 
+def git_local():
+    print("Git local still in construction. Please stay tuned")
+    exit(0)
+
 def git_global(): # Global configuration
     name=""; email=""
     print("Global Configuration initialized\n")
