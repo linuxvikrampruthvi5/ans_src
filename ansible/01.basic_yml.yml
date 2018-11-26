@@ -1,15 +1,15 @@
 --- # Start of yaml
-- hosts: rhel
-  remote_user: ansible
-  become: yes
-  become_method: sudo
-  connection: ssh
-  gather_facts: no
+- hosts: rhel           # Hosts or pods that
+  remote_user: ansible  # Who is the sudo user?
+  become: yes           # Is sudo privilege required?
+  become_method: sudo   # What is the sudo method?
+  connection: ssh       # Autherization conn type
+  gather_facts: no      # Get host details/facts
 
   tasks:
-  - name: Installing HTTPD server on RHEL/CENTOS servers
+  - name: Installing HTTPD server and ELINKS on RHEL/CENTOS servers
     yum:
-      name: httpd
+      name: [httpd, elinks]
       state: present
     notify:
     - startservice
