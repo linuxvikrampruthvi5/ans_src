@@ -36,8 +36,9 @@ def git_global(): # Global configuration
 
 
     ## Actual git commands execution starts here.
+    print("GIT global configuration started:\n")
     os.system('git config --global user.name \"'+name+'\"')
-    print(bcolors.OKGREEN + "Username setup for git completed..." + bcolors.ENDC)
+    print(bcolors.OKGREEN + "\t - Username setup for git completed..." + bcolors.ENDC)
     os.system('git config --global user.email \"' + email + '\"')
     print(bcolors.OKGREEN + "Email setup for git completed..." + bcolors.ENDC)
     if colors == 'Y' or 'y':
@@ -51,21 +52,21 @@ def git_global(): # Global configuration
         os.system('git config --global color.status.changed \"red bold\"')
         os.system('git config --global color.status.untracked \"magenta bold\"')
         os.system('git config --global color.branch.remote \"yellow\"')
-        print(bcolors.OKGREEN+"Color setup for git completed..."+bcolors.ENDC)
+        print(bcolors.OKGREEN+"\t - Color setup for git completed..."+bcolors.ENDC)
     if usr_def == 'Y' or 'y':
         os.system('git config --global push.diff \"simple\"')
     if editor == 'Y' or 'y':
         ed = raw_input("Which editor (vim, vi, emacs, etc): ")
-        print(bcolors.WARNING+'Checking existance of '+ed+" ..."+bcolors.ENDC)
+        print(bcolors.WARNING+'\t - Checking existance of '+ed+" ..."+bcolors.ENDC)
         ed = raw_input("Which editor (vim, vi, emacs, etc): ")
-        print('Checking existance of ' + ed + " ...")
+        print('\tChecking existance of ' + ed + " ...")
         proc = subprocess.Popen('which ' + ed, stdout=subprocess.PIPE, shell=True)
         (out, err) = proc.communicate()
         if len(out) > 0:
             os.system('git config --global core.editor '+out+'')
-            print(bcolors.OKGREEN + "Color setup for git completed..." + bcolors.ENDC)
+            print(bcolors.OKGREEN + "\t - Color setup for git completed..." + bcolors.ENDC)
         else:
-            print(bcolors.FAIL+"Default editor setup failed..."+bcolors.ENDC)
+            print(bcolors.FAIL+"\t - Default editor setup failed..."+bcolors.ENDC)
 
 
 def main():
@@ -93,5 +94,5 @@ def test():
 
 
 if __name__ == '__main__':
-    #main()
-    test()
+    main()
+    #test()
